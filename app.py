@@ -8,7 +8,7 @@ df.info()
 
 fill_values = {'model': 'unknown', 'condition': 'unknown', 'fuel': 'unknown', 
                'transmission': 'unknown', 'type': 'unknown', 'paint_color': 'unknown',
-               'model_year': 0, 'cylinders': 0, 'odometer': 0, 
+               'cylinders': 0, 'odometer': 0, 
                'is_4wd': 0, 'date_posted': 0, 'days_listed': 0}
 
 df.fillna(value=fill_values, inplace=True)
@@ -23,7 +23,7 @@ st.header('Used cars market')
 st.write("""
 ##### Filter the data below to see the ads by brand
 """)
-show_new_cars = st.checkbox('Include new cars from dealers')
+show_like_new_cars = st.checkbox('Include like new cars from dealers')
 
 show_new_cars
 if not show_new_cars:
@@ -85,7 +85,9 @@ def age_category(x):
 df['age_category']=  df['age'].apply(age_category)    
 df['age_category']
 st.write("""
-###### Now let's check how price is affected by odometer, engine capacity or number of photos in the adds
+
+         
+### Now let's check how price is affected by odometer, number of cylinders, and the number of days the car been on the market
 """)
 
 #Distribution of price depending on odometer, number of cylinders, and the number of days the cr has been listed.
@@ -97,5 +99,4 @@ fig2 = px.scatter(df, x="price", y=choice_for_scatter,hover_data=['model_year'])
 fig2.update_layout(
 title="<b> Price vs {}</b>".format(choice_for_scatter))
 st.plotly_chart(fig2)
-fig2
-#EDA.py
+
