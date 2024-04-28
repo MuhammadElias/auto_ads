@@ -15,7 +15,6 @@ df.fillna(value=fill_values, inplace=True)
 
 df.info()
 
-display(df.head())
 #creating header with an option to filter the data and the checkbox:
 #dataset includes mainly used cars, but there are several new options as well
 #let users decide whether they want to see new cars from dealers or not) 
