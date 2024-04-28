@@ -25,8 +25,8 @@ st.write("""
 """)
 show_like_new_cars = st.checkbox('Include like new cars from dealers')
 
-show_new_cars
-if not show_new_cars:
+show_like_new_cars
+if not show_like_new_cars:
     df = df[df.condition!='like new']
 #creating options for filter  from all manufacturers and different years
 Model_selection = df['model'].unique()
