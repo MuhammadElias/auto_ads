@@ -30,7 +30,7 @@ if not show_like_new_cars:
     df = df[df.condition!='like new']
 #creating options for filter  from all manufacturers and different years
 Model_selection = df['model'].unique()
-Select_car_model = st.selectbox('Select manufacturer:', Model_selection)
+Select_car_model = st.selectbox('Select a car model:', Model_selection)
 Select_car_model
 #next let's create a slider for years, so that users can filter cars by years of produciton
 #creating min and max years as limits for sliders
@@ -50,7 +50,7 @@ st.table(filtered_type)
 df
 st.header('Price analysis')
 st.write("""
-###### here is an analysis of what influences price the most. How will price fluctuate depending on 
+### here is an analysis of what influences price the most. How will price fluctuate depending on 
 transmission, number of cylinders or body type and vehicle conditions.
 """)
 
@@ -73,21 +73,10 @@ fig1.update_layout(title="<b> Split of price by {}</b>".format(choice_for_hist))
 #embedding into streamlit
 st.plotly_chart(fig1)
 fig1.show()
-# creating age category of cars, cause we want to take it into account when analyze the price
-df['age']=2022-df['model_year']
-
-def age_category(x):
-    if x<5: return '<5'
-    elif x>=5 and x<10: return '5-10'
-    elif x>=10 and x<20: return '10-20'
-    else: return '>20'
-
-df['age_category']=  df['age'].apply(age_category)    
-df['age_category']
 st.write("""
 
          
-### Now let's check how price is affected by odometer, number of cylinders, and the number of days the car been on the market
+### scatter below shows how price is affected by odometer, number of cylinders, and the number of days the car been on the market
 """)
 
 #Distribution of price depending on odometer, number of cylinders, and the number of days the cr has been listed.
