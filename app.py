@@ -3,17 +3,12 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_csv('vehicles_us.csv')
-df.info()
-# fill 'n/a' for object columns and 0 for numerical columns:
 
-fill_values = {'model': 'unknown', 'condition': 'unknown', 'fuel': 'unknown', 
-               'transmission': 'unknown', 'type': 'unknown', 'paint_color': 'unknown',
-               'cylinders': 0, 'odometer': 0, 
-               'is_4wd': 0, 'date_posted': 0, 'days_listed': 0}
-
-df.fillna(value=fill_values, inplace=True)
-
-df.info()
+df['cylinders'] = df[['cylinders', 'type']].groupby('type').transform(lambda x:x.fillna(x.median()))
+df['model_year'] = df[['model_year', 'model']].groupby('model').transform(lambda x:x.fillna(x.median()))
+df['odometer'] = df[['odometer', 'model_year']].groupby('model_year').transform(lambda x:x.fillna(x.median()))
+df['is_4wd'] = df[['is_4wd', 'type']].groupby('type').transform(lambda x:x.fillna(x.median()))
+df['model_year'] = df['model_year'].astype(int)
 
 #creating header with an option to filter the data and the checkbox:
 #dataset includes mainly used cars, but there are several new options as well
@@ -42,7 +37,7 @@ year_range = st.slider(
      value=(min_year,max_year),min_value=min_year,max_value=max_year )
 year_range
 #filtering dataset on chosen manufacturer and chosen year range
-filtered_type=df[(df.model == df['model'].unique) & (df.model_year >= year_range[0]) &
+filtered_type=df[(df.model == Select_car_model) & (df.model_year >= year_range[0]) &
                  (df.model_year <= year_range[1])]
 
 #showing the final table in streamlit
