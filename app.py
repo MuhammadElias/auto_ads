@@ -27,6 +27,11 @@ if not show_like_new_cars:
 Model_selection = df['model'].unique()
 Select_car_model = st.selectbox('Select a car model:', Model_selection)
 Select_car_model
+
+
+
+
+
 #next let's create a slider for years, so that users can filter cars by years of produciton
 #creating min and max years as limits for sliders
 min_year, max_year=int(df['model_year'].min()), int(df['model_year'].max())
@@ -42,6 +47,12 @@ filtered_type=df[(df.model == Select_car_model) & (df.model_year >= year_range[0
 
 #showing the final table in streamlit
 st.table(filtered_type)
+
+
+
+
+
+
 df
 st.header('Price analysis')
 st.write("""
@@ -76,7 +87,7 @@ st.write("""
 
 #Distribution of price depending on odometer, number of cylinders, and the number of days the cr has been listed.
 #with the split by age category
-list_for_scatter=['odometer','cylinder','days_listed']
+list_for_scatter=['odometer','cylinders','days_listed']
 choice_for_scatter = st.selectbox('Price dependency on ', list_for_scatter)
 fig2 = px.scatter(df, x="price", y=choice_for_scatter,hover_data=['model_year'])
 

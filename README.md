@@ -15,11 +15,11 @@ The purpose of this Used Cars WebApp is to provide a convenient and user-friendl
 To launch this Used Cars WebApp locally, follow these steps:
 1. Clone the repository to your local machine using `git clone https://github.com/MuhammadElias/auto_ads.git`
 2. Navigate to the project directory `cd Auto_Ads`
-3. Install dependencies by running `npm install`
-4. Start the development server with `npm start`
-5. Open your browser and visit `https://auto-ads.onrender.com` to access the web application.
+3. Open your browser and visit `https://auto-ads.onrender.com` to access the web application.
 
 Feel free to reach out if you have any questions or need further assistance with running the web application locally.
 """
 [Click here for access](https://auto-ads.onrender.com/)
 """
+
+Thank you so much for taking the time to review this, I do appreciate your help, am really excited to learn more about how to improve it, overall i still feel there is somthing off but cant pinpoint to it. I know your busy but am learning the most from your reveiws, please let me know if there is anuything i can do to make it better, and i still dont know i fixed this right.
