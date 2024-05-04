@@ -21,5 +21,3 @@ Feel free to reach out if you have any questions or need further assistance with
 """
 [Click here for access](https://auto-ads.onrender.com/)
 """
-
-Thank you so much for taking the time to review this, I do appreciate your help, am really excited to learn more about how to improve it, overall i still feel there is somthing off but cant pinpoint to it. I know your busy but am learning the most from your reveiws, please let me know if there is anuything i can do to make it better, and i still dont know i fixed this right.
